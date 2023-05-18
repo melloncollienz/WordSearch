@@ -8,7 +8,7 @@ namespace WordSearch
     class Program
     {
         static char[,] Grid = new char[,] {
-			{'C', 'P', 'K', 'X', 'O', 'I', 'G', 'H', 'S', 'F', 'C', 'H'},
+            {'C', 'P', 'K', 'X', 'O', 'I', 'G', 'H', 'S', 'F', 'C', 'H'},
             {'Y', 'G', 'W', 'R', 'I', 'A', 'H', 'C', 'Q', 'R', 'X', 'K'},
             {'M', 'A', 'X', 'I', 'M', 'I', 'Z', 'A', 'T', 'I', 'O', 'N'},
             {'E', 'T', 'W', 'Z', 'N', 'L', 'W', 'G', 'E', 'D', 'Y', 'W'},
@@ -143,7 +143,7 @@ namespace WordSearch
             return searchParams;
         }
 		
-		private static SearchResult TraverseGrid(string word, int wordIndex, Direction direction, int x, int y, SearchResult searchResult)
+        private static SearchResult TraverseGrid(string word, int wordIndex, Direction direction, int x, int y, SearchResult searchResult)
         {
             bool matches = false;
             var nextLocation = GetNextLocation(direction, x, y);
@@ -182,45 +182,45 @@ namespace WordSearch
                         result.Y = y - 1;
                         break;
                     }
-				case Direction.NE:
-					{
-						result.Y = y - 1;
+                case Direction.NE:
+	                {
+		                result.Y = y - 1;
                         result.X = x + 1;
-						break;
-					}
-				case Direction.E:
-					{
-						result.X = x + 1;
-						break;
-					}
-				case Direction.SE:
-					{
+		                break;
+	                }
+                case Direction.E:
+	                {
+		                result.X = x + 1;
+		                break;
+	                }
+                case Direction.SE:
+	                {
                         result.Y = y + 1;
-						result.X = x + 1;
-						break;
-					}
-				case Direction.S:
+		                result.X = x + 1;
+		                break;
+	                }
+                case Direction.S:
                     {
-						result.Y = y + 1;
-						break;
+		                result.Y = y + 1;
+		                break;
                     }
-				case Direction.SW:
+                case Direction.SW:
                     {
-						result.Y = y + 1;
-						result.X = x - 1;
-						break;
+		                result.Y = y + 1;
+		                result.X = x - 1;
+		                break;
                     }
-				case Direction.W:
-					{
-						result.X = x - 1;
-						break;
-					}
-				case Direction.NW:
-					{
-						result.Y = y - 1;
+                case Direction.W:
+	                {
+		                result.X = x - 1;
+		                break;
+	                }
+                case Direction.NW:
+	                {
+		                result.Y = y - 1;
                         result.X = x - 1;
-						break;
-					}
+		                break;
+	                }
 			}
             result.IsValidLocation = result.X >= 0 && result.X < 12 && result.Y >= 0 && result.Y < 12;
             return result;
