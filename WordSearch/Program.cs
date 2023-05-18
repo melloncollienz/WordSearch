@@ -63,7 +63,7 @@ namespace WordSearch
 
             var foundWords = FindWords();
             
-            foundWords.OrderBy(v => v.WordSearch).ToList().ForEach(t => Console.WriteLine($"{t.WordSearch} found at ({t.StartX}, {t.StartY} to ({t.EndX}, {t.EndY}) "));
+            foundWords.OrderBy(v => v.WordSearch).ToList().ForEach(t => Console.WriteLine($"{t.WordSearch} found at ({t.StartX}, {t.StartY}) to ({t.EndX}, {t.EndY}) "));
 
             Console.WriteLine("------------------------------");
             Console.WriteLine("");
@@ -151,7 +151,7 @@ namespace WordSearch
             var nextIndex = wordIndex + 1; 
             if (nextLocation.IsValidLocation)
             {
-				matches = string.Equals(Grid[nextLocation.Y, nextLocation.X].ToString(), word[nextIndex].ToString());
+				matches = string.Equals(Grid[nextLocation.Y, nextLocation.X].ToString(), word[nextIndex].ToString());  //do i need to handle case sensitivity?
                 if (matches)
                 {
                     if ((nextIndex + 1) == word.Length)
