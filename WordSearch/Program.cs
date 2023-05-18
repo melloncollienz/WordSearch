@@ -94,7 +94,6 @@ namespace WordSearch
             }
 
             return foundWords;
-
         }
 
         private static SearchResult FindWordFromLocation(string word, int x, int y)
@@ -122,16 +121,16 @@ namespace WordSearch
         private static SearchResult TraverseGrid(string word, int x, int y)
         {
 
-			var searchParams = new SearchResult()
-			{
+            var searchParams = new SearchResult()
+            {
                 WordSearch = word,
-				IsFound = false,
-				StartX = x,
-				StartY = y,
-			};
+	            IsFound = false,
+	            StartX = x,
+	            StartY = y,
+            };
 
-			//we know the first letter of the word should match the passed in location
-			foreach (Direction direction in (Direction[]) Enum.GetValues(typeof(Direction)))
+            //we know the first letter of the word should match the passed in location
+            foreach (Direction direction in (Direction[]) Enum.GetValues(typeof(Direction)))
             {
   
                 var searchResult = TraverseGrid(word, 0, direction, x, y, searchParams);
@@ -228,36 +227,5 @@ namespace WordSearch
         }
     }
 
-    internal class Location
-    {
-        public bool IsValidLocation { get; set; }
-        public int X { get; set; }
-        public int Y { get; set; }
-    }
-
-    internal class SearchResult
-    {
-        public string WordSearch { get; set; }
-        public bool IsFound { get; set; }
-        public int StartX { get; set; }
-
-        public int StartY { get; set; }
-        
-        public int EndX { get; set; }
-        public int EndY { get; set; }
-
-    }
-
-    public enum Direction
-    {
-        N, 
-        NE, 
-        E, 
-        SE, 
-        S, 
-        SW, 
-        W, 
-        NW
-    }
 
 }
