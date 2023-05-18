@@ -78,6 +78,7 @@ namespace WordSearch
             //PUPPY found at (10,7) to (10, 3) 
             var foundWords = new List<SearchResult>();
 
+            //todo: move these numbers into constants
             for (int x = 0; x < 12; x++)
             {
                 for (int y = 0;y < 12; y++)
@@ -150,7 +151,7 @@ namespace WordSearch
             var nextIndex = wordIndex + 1; 
             if (nextLocation.IsValidLocation)
             {
-				matches = char.Equals(Grid[nextLocation.Y, nextLocation.X].ToString(), word[nextIndex].ToString());
+				matches = string.Equals(Grid[nextLocation.Y, nextLocation.X].ToString(), word[nextIndex].ToString());
                 if (matches)
                 {
                     if ((nextIndex + 1) == word.Length)
